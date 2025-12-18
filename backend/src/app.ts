@@ -1,14 +1,22 @@
 import express from "express";
+import cors from "cors";
 import { AppDataSource } from "./AppDataSource";
+import bodyParser from "body-parser";
+import authRoutes from "./routes/authRoutes";
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-app.use(express.json());
+// app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("API running");
 });
+
+app.use("/v1/auth", authRoutes);
 
 AppDataSource.initialize()
   .then(() => {
