@@ -23,8 +23,8 @@ export class Task {
   @Column()
   title!: string;
 
-  @Column("text")
-  description!: string;
+  @Column("text", { nullable: true })
+  description?: string | null;
 
   @Column({
     type: "enum",

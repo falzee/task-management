@@ -3,6 +3,7 @@ import cors from "cors";
 import { AppDataSource } from "./AppDataSource";
 import bodyParser from "body-parser";
 import authRoutes from "./routes/authRoutes";
+import taskRoutes from "./routes/taskRoutes";
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,11 +13,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/health-check", (req, res) => {
   res.send("API running");
 });
 
 app.use("/v1/auth", authRoutes);
+app.use("/v1/tasks", taskRoutes);
 
 AppDataSource.initialize()
   .then(() => {

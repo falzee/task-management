@@ -16,8 +16,8 @@
     "skipLibCheck": true,
     // "forceConsistentCasingInFileNames": true,
 
-    "types": ["node"],
-    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "types": ["node", "express"],
+    "typeRoots": ["./src/types", "./node_modules/@types" ]
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",
@@ -60,6 +60,6 @@
     // "emitDecoratorMetadata": true,
     // "experimentalDecorators": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

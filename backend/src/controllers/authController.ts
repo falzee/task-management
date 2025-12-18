@@ -73,7 +73,7 @@ export const login = async (req: Request, res: Response) => {
             email: user.email
         });
 
-        res.status(201).json({ success: true, message: 'User Created Successfully', token: token });
+        res.status(201).json({ success: true, message: 'User Login Successfully', token: token });
     } catch (error){
         res.status(500).json({ success: false, message: "Internal Server Error", error });
     }
