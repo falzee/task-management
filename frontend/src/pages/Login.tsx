@@ -47,43 +47,45 @@ function Login() {
 
 return (
     <div className='login-page' style={{ display: 'flex', flexDirection:'column',justifyContent: 'center',alignItems:'center', height: '100vh', width: '100vw' }}>  
-        <h1 style={{ textAlign:'center',marginBottom:'10px'}}>Login</h1>
-        <Form
-            name="basic"
-            // labelCol={{ span: 8 }}
-            // wrapperCol={{ span: 16 }}
-            style={{ maxWidth: 900 }}
-            initialValues={{ remember: true }}
-            layout='vertical'
-            onFinish={onFinish}
-            autoComplete="off"
-        >
-            <Form.Item<FieldType>
-                label="e-mail"
-                name="email"
-                rules={[
-                    { required: true, message: 'Please input your email!' },
-                    { validator:validateEmail }
-                ]}
-            >
-                <Input />
-            </Form.Item>
+        <div className="login-container" style={{ maxWidth:'300px'}} >
+            <h1 style={{ textAlign:'center',marginBottom:'10px'}}>Login</h1>
+            <Form
+                name="basic"
+                // labelCol={{ span: 8 }}
+                // wrapperCol={{ span: 16 }}
+                // style={{ maxWidth: 900 }}
+                initialValues={{ remember: true }}
+                layout='vertical'
+                onFinish={onFinish}
+                autoComplete="off"
+                >
+                <Form.Item<FieldType>
+                    label="e-mail"
+                    name="email"
+                    rules={[
+                        { required: true, message: 'Please input your email!' },
+                        { validator:validateEmail }
+                    ]}
+                    >
+                    <Input />
+                </Form.Item>
 
-            <Form.Item<FieldType>
-                label="Password"
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
-            >
-                <Input.Password />
-            </Form.Item>
+                <Form.Item<FieldType>
+                    label="Password"
+                    name="password"
+                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    >
+                    <Input.Password />
+                </Form.Item>
 
-            <Form.Item label={null}>
-                <Button type="primary" htmlType="submit">
-                    Login
-                </Button>
-            </Form.Item>
-        </Form>
-        <p>Don't have an account? regis <Link to='/register'>here</Link></p>
+                <Form.Item label={null} >
+                    <Button type="primary" style={{ width:'100%'}} htmlType="submit">
+                        Login
+                    </Button>
+                </Form.Item>
+            </Form>
+            <p>Don't have an account? regis <Link to='/register'>here</Link></p>
+        </div>
     </div>
 )
 }
